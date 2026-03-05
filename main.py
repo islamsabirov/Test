@@ -1,7 +1,7 @@
 import logging
-import asyncio
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+
 from config import BOT_TOKEN
 from database import init_db
 from utils import check_subscription
@@ -29,6 +29,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def main():
     await init_db()
+
     app = Application.builder().token(BOT_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
@@ -38,4 +39,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(main())
