@@ -28,8 +28,8 @@ from telegram.error import TelegramError
 # ──────────────────────────────────────────────────────────────
 #  ⚙️  CONFIG & LOGGING
 # ──────────────────────────────────────────────────────────────
-BOT_TOKEN = "BOT_TOKEN"
-OWNER_ID = 5907118746  # Admin ID
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+OWNER_ID = int(os.getenv("OWNER_ID"))
 from database import db
 from handlers import (
     start_handler,
